@@ -22,13 +22,13 @@ $space-cadet: #2b2d42;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   min-height: 100vh;
-  background: linear-gradient($amaranth-red, $imperial-red);
+  background-color: $imperial-red;
   color: $alice-blue;
   text-align: center;
   font-family: "VT323", monospace;
+  transition: all 1.5s;
 }
 h2 {
   font-size: 48px;
@@ -36,6 +36,9 @@ h2 {
 
 p {
   font-size: 24px;
+  &:hover {
+    text-shadow: 0 0 3px $space-cadet;
+  }
 }
 
 header {
@@ -44,15 +47,20 @@ header {
   border-radius: 0 0 25px 25px;
   text-align: center;
   box-shadow: 0 -2px 15px $space-cadet;
+  transition: all 8s;
+  img {
+    width: 150px;
+  }
   .inputs {
     display: flex;
     justify-content: center;
     align-items: center;
-    #Buscador{
+    font-size: 18px;
+    #Buscador {
       border-radius: 25px 0 0 25px;
       padding-left: 10px;
     }
-    #Boton{
+    #Boton {
       background-color: $amaranth-red;
       color: $alice-blue;
       border-radius: 0 25px 25px 0;
@@ -61,15 +69,23 @@ header {
   }
 }
 
+@media (min-width: 768px) {
+  header {
+    .inputs {
+      font-size: 30px;
+    }
+  }
+}
+
 #Info {
   color: $alice-blue;
   animation-name: fade-in;
-  animation-duration: 2s;
-  animation-delay: 2s;
+  animation-duration: 4s;
 
   .nombre {
     text-align: center;
     padding: 20px;
+    text-shadow: 0 0 15px $space-cadet;
   }
   .info-wrapper {
     padding: 15px;
@@ -77,7 +93,6 @@ header {
       border-radius: 25px;
       background-color: $space-cadet;
       box-shadow: 0 -2px 15px $space-cadet;
-      //height: 100%;
       padding: 20px;
       transition: all 0.5s;
       &:hover {
@@ -91,7 +106,7 @@ header {
         margin-bottom: 20px;
         padding: 2.5rem;
         width: 100%;
-        img {
+        .pokeimg {
           width: 48%;
         }
       }

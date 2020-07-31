@@ -14,10 +14,11 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(#d90429, #ef233c);
+  background-color: #ef233c;
   color: #edf2f4;
   text-align: center;
   font-family: "VT323", monospace;
+  transition: all 1.5s;
 }
 
 h2 {
@@ -27,6 +28,9 @@ h2 {
 p {
   font-size: 24px;
 }
+p:hover {
+  text-shadow: 0 0 3px #2b2d42;
+}
 
 header {
   color: #2b2d42;
@@ -34,11 +38,16 @@ header {
   border-radius: 0 0 25px 25px;
   text-align: center;
   box-shadow: 0 -2px 15px #2b2d42;
+  transition: all 8s;
+}
+header img {
+  width: 150px;
 }
 header .inputs {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 18px;
 }
 header .inputs #Buscador {
   border-radius: 25px 0 0 25px;
@@ -51,15 +60,20 @@ header .inputs #Boton {
   padding: 0 10px;
 }
 
+@media (min-width: 768px) {
+  header .inputs {
+    font-size: 30px;
+  }
+}
 #Info {
   color: #edf2f4;
   animation-name: fade-in;
-  animation-duration: 2s;
-  animation-delay: 2s;
+  animation-duration: 4s;
 }
 #Info .nombre {
   text-align: center;
   padding: 20px;
+  text-shadow: 0 0 15px #2b2d42;
 }
 #Info .info-wrapper {
   padding: 15px;
@@ -83,7 +97,7 @@ header .inputs #Boton {
   padding: 2.5rem;
   width: 100%;
 }
-#Info .info-wrapper .info-pokemon__images img {
+#Info .info-wrapper .info-pokemon__images .pokeimg {
   width: 48%;
 }
 #Info .info-wrapper .estadisticas p {

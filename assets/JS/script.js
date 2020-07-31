@@ -1,13 +1,19 @@
 //Para que la función buscarPokemon() funcione también al apretar la tecla enter(13).
 $(document).on('keypress', e => {
-    if(e.which == 13) {
+    if (e.which == 13) {
         buscarPokemon();
     }
 });
 
+$("#Boton").click(e =>{
+    buscarPokemon();
+})
+
 const buscarPokemon = () => {
     let busqueda = $("#Buscador").val();
     let urlAPI = `https://pokeapi.co/api/v2/pokemon/${busqueda}`;
+
+    $("header").css("background-color" , "rgba(237, 242, 244, .3")
 
     //importar ajax
     $.ajax({
@@ -17,7 +23,9 @@ const buscarPokemon = () => {
             pokemon = {
                 nombre: result.name,
                 id: result.id,
-                tipo : result.types[0].type.name,
+                peso: result.weight,
+                altura: result.height,
+                tipo: result.types[0].type.name,
                 ataque: result.stats[1].base_stat,
                 defensa: result.stats[2].base_stat,
                 hp: result.stats[0].base_stat,
@@ -31,7 +39,7 @@ const buscarPokemon = () => {
             //Traduciendo el tipo de pokemon
             if (pokemon.tipo == "electric") {
                 pokemon.tipo = "Eléctrico"
-            } 
+            }
             else if (pokemon.tipo == "normal") {
                 pokemon.tipo = "Normal"
             }
@@ -89,8 +97,8 @@ const buscarPokemon = () => {
             else if (pokemon.tipo == "shadow") {
                 pokemon.tipo = "Sombra"
             };
-            
-            
+
+
             $("#Info").empty(); //Para vaciar el div contenedor y mostrar sólo 1 pokemon en pantalla
 
             //Agregando info al documento
@@ -100,11 +108,12 @@ const buscarPokemon = () => {
                 <div class="info-wrapper col-12 col-lg-4">
                     <div class="info-pokemon">
                         <div class="info-pokemon__images">
-                            <img src=${pokemon.imgFront} alt="" />
-                            <img src=${pokemon.imgBack} alt="" />
+                            <img class="pokeimg" src=${pokemon.imgFront} alt="" />
+                            <img class="pokeimg" src=${pokemon.imgBack} alt="" />
                         </div>
                         <p>Id pokedex: #${pokemon.id}</p>
-                        <p>Tipo: ${pokemon.tipo}</p>
+                        <p>Tipo: <span class="tipo">${pokemon.tipo}</span></p>
+                        <p>Peso: ${pokemon.peso / 10}Kg | Altura: ${pokemon.altura / 10}m</p>
                     </div>
                 </div>
                 <div class="info-wrapper col-12 col-lg-3">
@@ -126,6 +135,103 @@ const buscarPokemon = () => {
                 </div>
                 <hr />`).fadeIn(3000);
 
+            //Cambiando bg color según tipo de pokemon
+            if (pokemon.tipo == "Eléctrico") {
+                $(".info-pokemon__images").css("background-color", "#F8D030")
+                $("body").css("background-color", "#F8D030")
+                $(".tipo").css("color", "#F8D030")
+            }
+            else if (pokemon.tipo == "Normal") {
+                $(".info-pokemon__images").css("background-color", "#A8A090")
+                $("body").css("background-color", "#A8A090")
+                $(".tipo").css("color", "#A8A090")
+            }
+            else if (pokemon.tipo == "Luchador") {
+                $(".info-pokemon__images").css("background-color", "#A05038")
+                $("body").css("background-color", "#A05038")
+                $(".tipo").css("color", "#A05038")
+            }
+            else if (pokemon.tipo == "Volador") {
+                $(".info-pokemon__images").css("background-color", "#98A8F0")
+                $("body").css("background-color", "#98A8F0")
+                $(".tipo").css("color", "#98A8F0")
+            }
+            else if (pokemon.tipo == "Venenoso") {
+                $(".info-pokemon__images").css("background-color", "#B058A0")
+                $("body").css("background-color", "#B058A0")
+                $(".tipo").css("color", "#B058A0")
+            }
+            else if (pokemon.tipo == "Tierra") {
+                $(".info-pokemon__images").css("background-color", "#E9D6A4")
+                $("body").css("background-color", "#E9D6A4")
+                $(".tipo").css("color", "#E9D6A4")
+            }
+            else if (pokemon.tipo == "Roca") {
+                $(".info-pokemon__images").css("background-color", "#B8A058")
+                $("body").css("background-color", "#B8A058")
+                $(".tipo").css("color", "#B8A058")
+            }
+            else if (pokemon.tipo == "Bicho") {
+                $(".info-pokemon__images").css("background-color", "#A8B820")
+                $("body").css("background-color", "#A8B820")
+                $(".tipo").css("color", "#A8B820")
+            }
+            else if (pokemon.tipo == "Fantasma") {
+                $(".info-pokemon__images").css("background-color", "#6060B0")
+                $("body").css("background-color", "#6060B0")
+                $(".tipo").css("color", "#6060B0")
+            }
+            else if (pokemon.tipo == "Acero") {
+                $(".info-pokemon__images").css("background-color", "#A8A8C0")
+                $("body").css("background-color", "#A8A8C0")
+                $(".tipo").css("color", "#A8A8C0")
+            }
+            else if (pokemon.tipo == "Fuego") {
+                $(".info-pokemon__images").css("background-color", "#F05030")
+                $("body").css("background-color", "#F05030")
+                $(".tipo").css("color", "#F05030")
+            }
+            else if (pokemon.tipo == "Agua") {
+                $(".info-pokemon__images").css("background-color", "#3899F8")
+                $("body").css("background-color", "#3899F8")
+                $(".tipo").css("color", "#3899F8")
+            }
+            else if (pokemon.tipo == "Psíquico") {
+                $(".info-pokemon__images").css("background-color", "#F870A0")
+                $("body").css("background-color", "#F870A0")
+                $(".tipo").css("color", "#F870A0")
+            }
+            else if (pokemon.tipo == "Hielo") {
+                $(".info-pokemon__images").css("background-color", "#58C8E0")
+                $("body").css("background-color", "#58C8E0")
+                $(".tipo").css("color", "#58C8E0")
+            }
+            else if (pokemon.tipo == "Dragón") {
+                $(".info-pokemon__images").css("background-color", "#7860E0")
+                $("body").css("background-color", "#7860E0")
+                $(".tipo").css("color", "#7860E0")
+            }
+            else if (pokemon.tipo == "Oscuro") {
+                $(".info-pokemon__images").css("background-color", "#000")
+                $("body").css("background-color", "#000")
+                $(".tipo").css("color", "#000")
+            }
+            else if (pokemon.tipo == "Hada") {
+                $(".info-pokemon__images").css("background-color", "#E79FE7")
+                $("body").css("background-color", "#E79FE7")
+                $(".tipo").css("color", "#E79FE7")
+            }
+            else if (pokemon.tipo == "Planta") {
+                $(".info-pokemon__images").css("background-color", "#78C850")
+                $("body").css("background-color", "#78C850")
+                $(".tipo").css("color", "#78C850")
+            }
+            else if (pokemon.tipo == "Sombra") {
+                $(".info-pokemon__images").css("background-color", "#424242")
+                $("body").css("background-color", "#424242")
+                $(".tipo").css("color", "#424242")
+            };
+
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 data: [{
@@ -137,17 +243,17 @@ const buscarPokemon = () => {
                     toolTipContent: "<b>{label}:</b> {y}",
                     dataPoints: [
                         { y: pokemon.ataque, label: "Ataque" },
-                        { y: pokemon.defensa , label: "Defensa" },
+                        { y: pokemon.defensa, label: "Defensa" },
                         { y: pokemon.hp, label: "HP" },
                         { y: pokemon.velocidad, label: "Velocidad" },
-                        { y: pokemon.ataqueEspecial , label: "Ataque especial" },
-                        { y: pokemon.defensaEspecial , label: "Defensa especial" }
+                        { y: pokemon.ataqueEspecial, label: "Ataque especial" },
+                        { y: pokemon.defensaEspecial, label: "Defensa especial" }
                     ]
                 }]
             });
             chart.render();
 
-         busqueda = $("#Buscador").val("");
+            busqueda = $("#Buscador").val("");
         }
     });
 };
