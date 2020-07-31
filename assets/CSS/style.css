@@ -1,0 +1,93 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(#d90429, #ef233c);
+  color: #edf2f4;
+  text-align: center;
+  font-family: "VT323", monospace;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+p {
+  font-size: 24px;
+}
+
+header {
+  color: #2b2d42;
+  background-color: #edf2f4;
+  border-radius: 0 0 25px 25px;
+  text-align: center;
+  box-shadow: 0 -2px 15px #2b2d42;
+}
+header .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .inputs #Buscador {
+  border-radius: 25px 0 0 25px;
+  padding-left: 10px;
+}
+header .inputs #Boton {
+  background-color: #d90429;
+  color: #edf2f4;
+  border-radius: 0 25px 25px 0;
+  padding: 0 10px;
+}
+
+#Info {
+  color: #edf2f4;
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-delay: 2s;
+}
+#Info .nombre {
+  text-align: center;
+  padding: 20px;
+}
+#Info .info-wrapper {
+  padding: 15px;
+}
+#Info .info-wrapper .info-pokemon {
+  border-radius: 25px;
+  background-color: #2b2d42;
+  box-shadow: 0 -2px 15px #2b2d42;
+  padding: 20px;
+  transition: all 0.5s;
+}
+#Info .info-wrapper .info-pokemon:hover {
+  background-color: #8d99ae;
+  color: #2b2d42;
+  box-shadow: 0 -2px 30px #2b2d42;
+}
+#Info .info-wrapper .info-pokemon__images {
+  background-color: #edf2f4;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  padding: 2.5rem;
+  width: 100%;
+}
+#Info .info-wrapper .info-pokemon__images img {
+  width: 48%;
+}
+#Info .info-wrapper .estadisticas p {
+  text-align: left;
+}
+
+/*# sourceMappingURL=style.css.map */

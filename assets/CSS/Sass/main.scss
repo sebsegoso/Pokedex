@@ -1,0 +1,105 @@
+//Variables
+$amaranth-red: #d90429;
+$imperial-red: #ef233c;
+$alice-blue: #edf2f4;
+$manatee: #8d99ae;
+$space-cadet: #2b2d42;
+//
+
+//Keyframes
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient($amaranth-red, $imperial-red);
+  color: $alice-blue;
+  text-align: center;
+  font-family: "VT323", monospace;
+}
+h2 {
+  font-size: 48px;
+}
+
+p {
+  font-size: 24px;
+}
+
+header {
+  color: $space-cadet;
+  background-color: $alice-blue;
+  border-radius: 0 0 25px 25px;
+  text-align: center;
+  box-shadow: 0 -2px 15px $space-cadet;
+  .inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #Buscador{
+      border-radius: 25px 0 0 25px;
+      padding-left: 10px;
+    }
+    #Boton{
+      background-color: $amaranth-red;
+      color: $alice-blue;
+      border-radius: 0 25px 25px 0;
+      padding: 0 10px;
+    }
+  }
+}
+
+#Info {
+  color: $alice-blue;
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-delay: 2s;
+
+  .nombre {
+    text-align: center;
+    padding: 20px;
+  }
+  .info-wrapper {
+    padding: 15px;
+    .info-pokemon {
+      border-radius: 25px;
+      background-color: $space-cadet;
+      box-shadow: 0 -2px 15px $space-cadet;
+      //height: 100%;
+      padding: 20px;
+      transition: all 0.5s;
+      &:hover {
+        background-color: $manatee;
+        color: $space-cadet;
+        box-shadow: 0 -2px 30px $space-cadet;
+      }
+      &__images {
+        background-color: $alice-blue;
+        border-radius: 25px;
+        margin-bottom: 20px;
+        padding: 2.5rem;
+        width: 100%;
+        img {
+          width: 48%;
+        }
+      }
+    }
+    .estadisticas {
+      p {
+        text-align: left;
+      }
+    }
+  }
+}
