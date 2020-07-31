@@ -44,6 +44,9 @@ const buscarPokemon = () => {
             else if (pokemon.tipo == "poison") {
                 pokemon.tipo = "Venenoso"
             }
+            else if (pokemon.tipo == "ground") {
+                pokemon.tipo = "Tierra"
+            }
             else if (pokemon.tipo == "rock") {
                 pokemon.tipo = "Roca"
             }
@@ -144,7 +147,7 @@ const buscarPokemon = () => {
             });
             chart.render();
 
-        busqueda = "";
+         busqueda = $("#Buscador").val("");
         }
     });
-}
+};
