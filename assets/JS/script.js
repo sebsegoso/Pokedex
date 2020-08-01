@@ -11,7 +11,8 @@ $("#Boton").click(e =>{
 
 const buscarPokemon = () => {
     let busqueda = $("#Buscador").val();
-    let urlAPI = `https://pokeapi.co/api/v2/pokemon/${busqueda}`;
+    let busquedaMin = busqueda.toLowerCase();
+    let urlAPI = `https://pokeapi.co/api/v2/pokemon/${busquedaMin}`;
 
     $("header").css("background-color" , "rgba(237, 242, 244, .3")
 
